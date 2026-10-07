@@ -1,0 +1,6 @@
+{
+  "name": "Muhiba Mystery: The Lost Description",
+  "description": "A 2D vocational English adventure game for Grade X students at SMK Muhammadiyah Bawang, mastering Descriptive Text across AKL, Otomotif, and TJKT departments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

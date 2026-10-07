@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #F7F4EB;
+    color: #2B2D42;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.font-pixel {
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* Pixel art rendering rules */
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Vintage Postmodern Eclectic styling (Memphis / 80s-90s playful pastel) */
+.postmodern-card {
+  background-color: #FFFDF9;
+  border: 2px solid #2B2D42;
+  box-shadow: 4px 4px 0 0 #2B2D42;
+  border-radius: 1rem;
+}
+
+.postmodern-card-sm {
+  background-color: #FFFDF9;
+  border: 1.5px solid #2B2D42;
+  box-shadow: 2.5px 2.5px 0 0 #2B2D42;
+  border-radius: 0.75rem;
+}
+
+.postmodern-btn {
+  border: 2px solid #2B2D42;
+  box-shadow: 3px 3px 0 0 #2B2D42;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.postmodern-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 0 #2B2D42;
+}
+
+/* Vintage dot grid pattern */
+.bg-retro-dots {
+  background-image: radial-gradient(#2B2D42 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F0ECE1;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4B9A7;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9A8C78;
+}
+
+
