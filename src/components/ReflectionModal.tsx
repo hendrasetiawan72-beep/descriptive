@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Department } from '../types/game';
 import { DEPARTMENTS } from '../data/curriculumData';
 import { sound } from '../utils/audio';
-import { Sparkles, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 interface ReflectionModalProps {
   department: Department;
@@ -41,7 +41,7 @@ export const ReflectionModal: React.FC<ReflectionModalProps> = ({
         {/* Header */}
         <div className="text-center mb-5">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#D8F3DC] border border-[#2B2D42] text-[#1B4332] rounded-full text-xs font-bold mb-1.5 shadow-[1.5px_1.5px_0_0_#2B2D42]">
-            <Sparkles className="w-3.5 h-3.5 text-[#2A9D8F]" />
+            <span className="text-xs">🔥</span>
             <span>Kurikulum Merdeka · Deep Learning Reflection</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-black text-[#2B2D42] tracking-tight">

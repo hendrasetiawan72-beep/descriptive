@@ -592,23 +592,51 @@ export const GameEngine: React.FC<GameEngineProps> = ({
       // 7. Contextual Interaction Bubble over Player when near object/NPC
       if (nearbyObjectRef.current) {
         const obj = nearbyObjectRef.current;
-        const bubbleY = p.y - 36;
         ctx.save();
-        ctx.font = 'bold 9px "Plus Jakarta Sans", sans-serif';
-        const label = obj.type === 'npc' ? `💬 Bicara: ${obj.name}` : `🔍 Periksa: ${obj.name}`;
-        const metrics = ctx.measureText(label);
-        const bubbleW = metrics.width + 14;
+        ctx.font = 'bold 9.5px "Plus Jakarta Sans", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
 
+        // Short, clean name display so it never overflows
+        const cleanName = obj.name.length > 22 ? obj.name.slice(0, 20) + '...' : obj.name;
+        const label = obj.type === 'npc' ? `💬 Bicara: ${cleanName}` : `🔥 Periksa: ${cleanName}`;
+        const metrics = ctx.measureText(label);
+        const paddingX = 14;
+        const bubbleW = Math.max(90, Math.ceil(metrics.width + paddingX * 2));
+        const bubbleH = 22;
+
+        // Position & clamp within map bounds so it NEVER clips off-screen or out of frame
+        const bubbleX = Math.max(bubbleW / 2 + 12, Math.min(map.bounds.width - bubbleW / 2 - 12, p.x));
+        const bubbleY = Math.max(bubbleH / 2 + 8, p.y - 38);
+
+        // Soft drop shadow
+        ctx.fillStyle = '#2B2D42';
+        ctx.beginPath();
+        ctx.roundRect(bubbleX - bubbleW / 2 + 2, bubbleY - bubbleH / 2 + 2, bubbleW, bubbleH, 11);
+        ctx.fill();
+
+        // Main white rounded pill body
         ctx.fillStyle = '#FFFDF9';
         ctx.strokeStyle = '#2B2D42';
-        ctx.lineWidth = 1.5;
+        ctx.lineWidth = 1.8;
         ctx.beginPath();
-        ctx.roundRect(p.x - bubbleW / 2, bubbleY - 14, bubbleW, 16, 6);
+        ctx.roundRect(bubbleX - bubbleW / 2, bubbleY - bubbleH / 2, bubbleW, bubbleH, 11);
         ctx.fill();
         ctx.stroke();
 
+        // Downward pointer tip towards character
+        ctx.fillStyle = '#FFFDF9';
+        ctx.beginPath();
+        ctx.moveTo(bubbleX - 4, bubbleY + bubbleH / 2);
+        ctx.lineTo(bubbleX, bubbleY + bubbleH / 2 + 4);
+        ctx.lineTo(bubbleX + 4, bubbleY + bubbleH / 2);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        // Text perfectly centered inside pill
         ctx.fillStyle = '#2B2D42';
-        ctx.fillText(label, p.x - bubbleW / 2 + 7, bubbleY - 3);
+        ctx.fillText(label, bubbleX, bubbleY);
         ctx.restore();
       }
 
@@ -638,7 +666,7 @@ export const GameEngine: React.FC<GameEngineProps> = ({
       {/* Subtle Immersive Touch Guidance Hint: Vintage Postmodern Eclectic Pill */}
       <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 pointer-events-none z-10 opacity-75 hover:opacity-100 transition-opacity">
         <div className="px-3.5 py-1 bg-[#FFFDF9]/90 backdrop-blur-xs border-2 border-[#2B2D42] rounded-full text-[10px] text-[#2B2D42] font-black shadow-[2px_2px_0_0_#2B2D42] flex items-center gap-1.5 tracking-tight">
-          <span className="text-[#E76F51]">✨</span>
+          <span className="text-[#E76F51]">🔥</span>
           <span>Sentuh jentik untuk meluncur · Ketuk untuk interaksi</span>
         </div>
       </div>

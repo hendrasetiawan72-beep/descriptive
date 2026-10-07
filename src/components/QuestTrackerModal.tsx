@@ -3,7 +3,7 @@ import { Department, ScoreState } from '../types/game';
 import { DEPARTMENTS, getDepartmentObjective } from '../data/curriculumData';
 import { calculateTotalScore } from '../utils/formSubmit';
 import { sound } from '../utils/audio';
-import { Compass, CheckCircle2, Circle, X, Award, Sparkles } from 'lucide-react';
+import { Compass, CheckCircle2, Circle, X, Flame } from 'lucide-react';
 
 interface QuestTrackerModalProps {
   department: Department;
@@ -94,7 +94,7 @@ export const QuestTrackerModal: React.FC<QuestTrackerModalProps> = ({
         {/* Score & Rubric Bar */}
         <div className="bg-[#FFF3B0]/60 p-3 rounded-2xl border-1.5 border-[#2B2D42] mb-3 flex flex-wrap items-center justify-between gap-2 shadow-[2px_2px_0_0_#2B2D42]">
           <div className="flex items-center gap-2">
-            <Award className="w-5 h-5 text-[#D97706]" />
+            <Flame className="w-5 h-5 text-[#E76F51]" />
             <div>
               <span className="text-[10px] text-[#6C757D] font-bold block">Skor Total:</span>
               <span className="text-sm font-black text-[#2B2D42] font-mono">
@@ -158,7 +158,7 @@ export const QuestTrackerModal: React.FC<QuestTrackerModalProps> = ({
                 {isCompleted ? (
                   <CheckCircle2 className="w-4 h-4 text-[#1B4332] shrink-0 mt-0.5" />
                 ) : isCurrent ? (
-                  <Sparkles className="w-4 h-4 text-[#D97706] shrink-0 mt-0.5 animate-spin" />
+                  <span className="text-sm shrink-0 mt-0.5 animate-pulse">🔥</span>
                 ) : (
                   <Circle className="w-4 h-4 text-[#6C757D] shrink-0 mt-0.5" />
                 )}

@@ -6,7 +6,6 @@ import {
   CheckCircle2,
   XCircle,
   ArrowRight,
-  Sparkles,
   HelpCircle,
   FileCheck,
   AlertTriangle,

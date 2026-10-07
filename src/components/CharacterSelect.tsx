@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CharacterGender, Department, StudentProfile } from '../types/game';
 import { DEPARTMENTS } from '../data/curriculumData';
 import { sound } from '../utils/audio';
-import { User, School, Sparkles, ArrowRight, Check } from 'lucide-react';
+import { User, School, ArrowRight, Check } from 'lucide-react';
 
 interface CharacterSelectProps {
   onStartGame: (profile: StudentProfile) => void;
@@ -46,7 +46,7 @@ export const CharacterSelect: React.FC<CharacterSelectProps> = ({ onStartGame })
         {/* Header */}
         <div className="text-center mb-5">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#FFF3B0] border border-[#2B2D42] rounded-full text-xs font-bold mb-1.5 shadow-[1.5px_1.5px_0_0_#2B2D42]">
-            <Sparkles className="w-3.5 h-3.5 text-[#D97706]" />
+            <span className="text-xs">🔥</span>
             <span>SMK Muhammadiyah Bawang · Profil Siswa</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-black text-[#2B2D42] tracking-tight">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { sound } from '../utils/audio';
-import { Play, RotateCcw, Sparkles } from 'lucide-react';
+import { Play, RotateCcw } from 'lucide-react';
 
 interface TitleScreenProps {
   onStartNew: () => void;

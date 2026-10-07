@@ -11,7 +11,7 @@ import {
   Briefcase,
   ChevronDown,
   ChevronUp,
-  Award,
+  Flame,
   Menu,
   Target,
   CheckCircle2,
@@ -234,7 +234,7 @@ export const HUD: React.FC<HUDProps> = ({
           <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
             {/* Score Badge */}
             <div className="flex items-center gap-1 px-2 py-1 bg-[#FFF3B0] border-2 border-[#2B2D42] rounded-xl text-xs font-bold text-[#2B2D42] shadow-[1.5px_1.5px_0_0_#2B2D42]">
-              <Award className="w-3.5 h-3.5 text-[#D97706]" />
+              <Flame className="w-3.5 h-3.5 text-[#E76F51] shrink-0" />
               <span className="font-mono font-black">{totalScore}</span>
               <span className="text-[10px] text-[#6C757D]">/100</span>
             </div>

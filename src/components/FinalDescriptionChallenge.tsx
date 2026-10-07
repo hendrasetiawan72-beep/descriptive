@@ -6,7 +6,6 @@ import {
   FileText,
   CheckCircle2,
   AlertCircle,
-  Sparkles,
   ArrowRight,
   BookOpen,
 } from 'lucide-react';

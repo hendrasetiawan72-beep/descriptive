@@ -9,8 +9,7 @@ import {
   AlertTriangle,
   Clock,
   User,
-  Sparkles,
-  Award,
+  Flame,
 } from 'lucide-react';
 
 interface MissionCompleteScreenProps {
@@ -81,7 +80,7 @@ export const MissionCompleteScreen: React.FC<MissionCompleteScreenProps> = ({
         {/* Banner */}
         <div className="text-center mb-5">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#FFF3B0] border border-[#2B2D42] text-[#2B2D42] rounded-full text-xs font-bold mb-2 font-pixel shadow-[1.5px_1.5px_0_0_#2B2D42]">
-            <Sparkles className="w-3.5 h-3.5 text-[#D97706]" />
+            <span className="text-xs">🔥</span>
             <span>EXPO ARCHIVE RESTORED</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-[#2B2D42] tracking-tight">
@@ -118,7 +117,10 @@ export const MissionCompleteScreen: React.FC<MissionCompleteScreenProps> = ({
           {/* Score & Rank Hero Highlight */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 py-1 text-center">
             <div className="bg-[#FFF3B0] p-3 rounded-xl border-1.5 border-[#2B2D42] shadow-[2px_2px_0_0_#2B2D42]">
-              <span className="text-[10px] text-[#78350F] font-bold block mb-0.5">Nilai Akhir</span>
+              <span className="text-[10px] text-[#78350F] font-bold flex items-center justify-center gap-1 mb-0.5">
+                <Flame className="w-3 h-3 text-[#E76F51]" />
+                Nilai Akhir
+              </span>
               <span className="text-2xl sm:text-3xl font-black text-[#2B2D42] font-mono">
                 {totalScore}
                 <span className="text-xs font-normal text-[#6C757D]">/100</span>
@@ -126,8 +128,11 @@ export const MissionCompleteScreen: React.FC<MissionCompleteScreenProps> = ({
             </div>
 
             <div className="bg-[#E2D4F0] p-3 rounded-xl border-1.5 border-[#2B2D42] shadow-[2px_2px_0_0_#2B2D42]">
-              <span className="text-[10px] text-[#240046] font-bold block mb-0.5">Peringkat</span>
-              <span className="text-xs font-extrabold text-[#240046] font-pixel block leading-snug mt-1">
+              <span className="text-[10px] text-[#240046] font-bold block mb-0.5">Peringkat Kejuruan</span>
+              <div className="flex items-center justify-center gap-1 text-[#E76F51] text-xs mb-0.5">
+                {totalScore >= 90 ? '🔥🔥🔥' : totalScore >= 75 ? '🔥🔥' : '🔥'}
+              </div>
+              <span className="text-[11px] font-extrabold text-[#240046] font-pixel block leading-snug">
                 {rank}
               </span>
             </div>
